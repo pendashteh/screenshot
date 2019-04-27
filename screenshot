@@ -5,7 +5,7 @@ imgfile="$tmpfile.png"
 mv $tmpfile $imgfile
 
 echo "You can now use your mouse to grab a shot of your screen. Use Alt+TAB to switch screen. Once you are done come back here :)"
-import $tmpfile
+import $imgfile
 
 echo "Screenshot is taken and places at the following path:"
 echo $imgfile
