@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+tmpfile=$(mktemp)
+imgfile="$tmpfile.png"
+mv $tmpfile $imgfile
+
+
+import $tmpfile
+
+echo "Screenshot is taken and places at the following path:"
+echo $imgfile
+
+read -p "Do you want to keep the file? Otherwise, press anything to delete. y/N " keep
+
+case "$keep" in
+  "y")
+    echo "File is kept."
+  ;;
+  *)
+    rm $imgfile
+    echo "File was deleted."
+  ;;
+esac
+
