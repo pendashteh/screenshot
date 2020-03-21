@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+destfile=""
+[ ! -z "$1" ] && destfile="$1"
+
 tmpfile=$(mktemp)
 imgfile="$tmpfile.png"
 mv $tmpfile $imgfile
@@ -9,6 +12,12 @@ import $imgfile
 
 echo "Screenshot is taken and places at the following path:"
 echo $imgfile
+
+if [ ! -z "$destfile" ]; then
+  mv $imgfile $destfile
+  echo "File saved at $destfile"
+  exit
+fi
 
 read -p "Do you want to keep the file? Otherwise, press anything to delete. y/N " keep
 
