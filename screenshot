@@ -19,15 +19,16 @@ if [ ! -z "$destfile" ]; then
   exit
 fi
 
-read -p "Do you want to keep the file? Otherwise, press anything to delete. y/N " keep
+read -p "Do you want to remove the file? y/N " keep
 
 case "$keep" in
   "y")
-    echo "File is kept."
+    rm $imgfile
+    echo 'File is deleted.'
   ;;
   *)
-    rm $imgfile
-    echo "File was deleted."
+    echo 'File is kept.'
+    echo $imgfile
   ;;
 esac
 
